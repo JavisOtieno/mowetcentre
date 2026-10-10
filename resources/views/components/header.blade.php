@@ -17,7 +17,7 @@
     
 
     <!-- TITLE -->
-    <title>SCG Tracker System</title>
+    <title>Mowet System | Momentum Wellness Trust</title>
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
