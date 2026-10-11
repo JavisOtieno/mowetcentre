@@ -9,11 +9,11 @@
 
   <!-- PAGE-HEADER -->
   <div class="page-header">
-    <h1 class="page-title">Trips</h1>
+    <h1 class="page-title">Orders</h1>
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Tracker</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Trips</li>
+            <li class="breadcrumb-item active" aria-current="page">Orders</li>
         </ol>
     </div>
 </div>
@@ -23,13 +23,13 @@
 <div class="col-xl-12 row">
     <div class="card col-md-8 ">
         <div class="card-header">
-            <h3 class="card-title">Add Trip</h3> 
+            <h3 class="card-title">Add Order</h3> 
         </div>
         <div class="card-body">
-            <!--<p>Use <code class="highlighter-rouge">.table-striped</code>to add zebra-striping to any table row within the <code class="highlighter-rouge">.tbody</code>.</p>-->
+            <!--<p>Use <code class="highlighter-rouge">.table-sordered</code>to add zebra-sordering to any table row within the <code class="highlighter-rouge">.tbody</code>.</p>-->
             
                 
-                    <form action="/savetrip" method="POST">
+                    <form action="/saveorder" method="POST">
                         @csrf
                         @method('POST')
                         <div class="">
@@ -105,7 +105,7 @@
              
             <h5 class="card-title">Quick Tips</h5>
            <ol class="card-text">
-                <li style="margin-bottom: 10px;"><strong>Name </strong>: Enter the name of the trip. </li>
+                <li style="margin-bottom: 10px;"><strong>Name </strong>: Enter the name of the order. </li>
             </ol>
           </div>
         </div>

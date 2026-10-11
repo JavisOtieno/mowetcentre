@@ -9,11 +9,11 @@
 
   <!-- PAGE-HEADER -->
   <div class="page-header">
-    <h1 class="page-title">Trips</h1>
+    <h1 class="page-title">Orders</h1>
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Tracker</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Trips</li>
+            <li class="breadcrumb-item active" aria-current="page">Orders</li>
         </ol>
     </div>
 </div>
@@ -23,13 +23,13 @@
 <div class="col-xl-12">
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Create Trip</h3>
-            {{-- <a type="button" href="/createtrip" class="btn btn-danger col-md-3" 
+            <h3 class="card-title">Create Order</h3>
+            {{-- <a type="button" href="/createorder" class="btn btn-danger col-md-3" 
             style="margin-left: auto;margin-right:20px;margin-top:10px;margin-bottom:10px;color:white;"
-            >Create Trip</a> --}}
+            >Create Order</a> --}}
         </div>
         <div class="row" style="margin: 0 10px;">
-            <input type="hidden" id="tableLoaded" value="trips"/>
+            <input type="hidden" id="tableLoaded" value="orders"/>
             <h3 class="card-title" style="margin-top:20px;margin-block-end: 0rem;">Search by :</h3>
             {{-- <div class="col-md-3 mb-3">
                 <label for="name" class="form-label">Test Name</label>
@@ -51,7 +51,7 @@
             
         </div>
         <div class="card-body">
-            <!--<p>Use <code class="highlighter-rouge">.table-striped</code>to add zebra-striping to any table row within the <code class="highlighter-rouge">.tbody</code>.</p>-->
+            <!--<p>Use <code class="highlighter-rouge">.table-sordered</code>to add zebra-sordering to any table row within the <code class="highlighter-rouge">.tbody</code>.</p>-->
             <div class="table-responsive">
                 <table id="responsive-datatable" class="table table-bordered text-nowrap border-bottom">
                     <thead>
@@ -75,31 +75,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if(count($trips)>0)
+                        @if(count($orders)>0)
                         
-                        @foreach($trips as $trip)
+                        @foreach($orders as $order)
 <tr>
-<td>{{$trip['id']}}</td>
-<td><a type="button" href="/trip/{{$trip['id']}}" class="btn btn-info" style="margin-left: auto;color:white;">View/Edit</a>
+<td>{{$order['id']}}</td>
+<td><a type="button" href="/order/{{$order['id']}}" class="btn btn-info" style="margin-left: auto;color:white;">View/Edit</a>
 </td>
-<td><a type="button" onclick="deleteItem('{{$trip['id']}}','{{$trip['name']}}','{{$trip['name']}}')"  class="btn btn-danger" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#modalDelete">Delete</a>
+<td><a type="button" onclick="deleteItem('{{$order['id']}}','{{$order['name']}}','{{$order['name']}}')"  class="btn btn-danger" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#modalDelete">Delete</a>
 </td>
     {{-- <td>{{$posaudit['user']['name']}}</td> --}}
-<td>{{ $trip['user'] ? $trip['user']['name']  . ($trip['user']->trashed() ? ' (Deleted User)' : '') : 'Deleted User'}}
-<td>{{ $trip['customer'] ? $trip['customer']['name']  . ($trip['customer']->trashed() ? ' (Deleted Customer)' : '') : 'Deleted Customer'}}
-<td>{{$trip['start_location']}}</td>
-<td>{{$trip['end_location']}}</td>
-<td>{{$trip['locations_sum_distance']}}</td>
-<td>{{$trip['distance']}}</td>
-<td>{{date('d-M-Y', strtotime($trip['created_at']))}}</td>
-<td>{{date('H:i', strtotime($trip['created_at']))}}</td>
+<td>{{ $order['user'] ? $order['user']['name']  . ($order['user']->trashed() ? ' (Deleted User)' : '') : 'Deleted User'}}
+<td>{{ $order['customer'] ? $order['customer']['name']  . ($order['customer']->trashed() ? ' (Deleted Customer)' : '') : 'Deleted Customer'}}
+<td>{{$order['start_location']}}</td>
+<td>{{$order['end_location']}}</td>
+<td>{{$order['locations_sum_distance']}}</td>
+<td>{{$order['distance']}}</td>
+<td>{{date('d-M-Y', strtotime($order['created_at']))}}</td>
+<td>{{date('H:i', strtotime($order['created_at']))}}</td>
 
 
 
 <td><a type="button" 
     {{-- onclick="embedMap2()" --}}
     id=""
-     onclick="rewriteMap({{ $trip }})"
+     onclick="rewriteMap({{ $order }})"
     class="btn btn-success" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#largemodal">Map</a>
 </td>
 {{-- <td>
@@ -144,7 +144,7 @@
                         </div>
                     
                         <div class="modal-body">
-                            <div id="googleMapTrips" class="worldh world-map h-500" ></div>
+                            <div id="googleMapOrders" class="worldh world-map h-500" ></div>
                             {{-- <iframe id="mapEmbededForNow" style="width:100%;height:400px;" src = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4084493.7307095355!2d36.50569875426991!3d-1.3175850003645804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ske!4v1715327211380!5m2!1sen!2ske"></iframe> --}}
                             <!--<div id="googleMap" style="width:100%;height:400px;"></div>-->
                         </div>
@@ -163,9 +163,9 @@
     function deleteItem(id,name,seller){
         //alert(id);
         var itemDetails = document.getElementById("itemDetails");
-        itemDetails.innerHTML = "Trip Name: "+name+"<br/> Seller Name: "+seller;
+        itemDetails.innerHTML = "Order Name: "+name+"<br/> Seller Name: "+seller;
         var confirmDeleteLink = document.getElementById('confirmDelete'); //or grab it by tagname etc
-        confirmDeleteLink.href = "/deletetrip/"+id;
+        confirmDeleteLink.href = "/deleteorder/"+id;
     }
   </script>
 
@@ -186,14 +186,14 @@ function embedMap(lat,long){
       36.817223),
       zoom:10,
     };
-    var trips= @json($trips);
+    var orders= @json($orders);
     
 
-    if(trips[0]['tripitems'][0]['outlet']){
-        alert("we get here trip yeah");
+    if(orders[0]['orderitems'][0]['outlet']){
+        alert("we get here order yeah");
     var mapProp= {
-      center:new google.maps.LatLng(Number(trips[0]['tripitems'][0]['outlet']['lat']),
-      Number(trips[0]['tripitems'][0]['outlet']['long'])),
+      center:new google.maps.LatLng(Number(orders[0]['orderitems'][0]['outlet']['lat']),
+      Number(orders[0]['orderitems'][0]['outlet']['long'])),
       zoom:10,
     };
     }else{
@@ -215,15 +215,15 @@ function embedMap(lat,long){
 
     
     var map = new google.maps.Map(googleMapsDiv,mapProp);
-    if(trips.length>0){
+    if(orders.length>0){
         alert("we get here with the plans. wuuhuu");
     var bounds = new google.maps.LatLngBounds();
 
-    console.log(trips);
+    console.log(orders);
     
-    trips.forEach(trip => {
-        var lat1 = Number(trip['tripitems'][0]['outlet']['lat']);
-        var long1 = Number(trip['tripitems'][0]['outlet']['long']);
+    orders.forEach(order => {
+        var lat1 = Number(order['orderitems'][0]['outlet']['lat']);
+        var long1 = Number(order['orderitems'][0]['outlet']['long']);
         alert(lat1);
         alert(long1);
 
@@ -251,7 +251,7 @@ function embedMap(lat,long){
             // });
             //
             // var infowindow = new google.maps.InfoWindow({
-            //     content: "<div><h3>"+trip['tripitems'][0]['outlet']['name']+"</h3>"+
+            //     content: "<div><h3>"+order['orderitems'][0]['outlet']['name']+"</h3>"+
             //         "<p>Latitude: "+lat1+"</p>"+
             //         "<p>Longitude: "+long1+"</p>"+
             //         "</div>"
@@ -264,9 +264,9 @@ function embedMap(lat,long){
             const myPosition = { lat: -25.344, lng: 131.031 };
             
         
-        alert(trip['tripitems'][0]['outlet']['name']);
+        alert(order['orderitems'][0]['outlet']['name']);
         var marker = new google.maps.Marker({position: myPosition,
-            title: trip['tripitems'][0]['outlet']['name'],
+            title: order['orderitems'][0]['outlet']['name'],
         });
         // google.maps.event.addListener(marker, 'click', function() {
         //         infowindow.open(map,marker);
@@ -275,8 +275,8 @@ function embedMap(lat,long){
         
     });
     //map.fitBounds(bounds);
-    var lat1 = trips[0]['tripitems'][0]['outlet']['lat'];
-    var long1 = trips[0]['tripitems'][0]['outlet']['long'];
+    var lat1 = orders[0]['orderitems'][0]['outlet']['lat'];
+    var long1 = orders[0]['orderitems'][0]['outlet']['long'];
     }
 
     });
@@ -306,13 +306,13 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
     var distanceDiv;
     
     function myMap2() {
-        var trips= @json($trips);
+        var orders= @json($orders);
 
-    if(trips[0] != null){
+    if(orders[0] != null){
     var mapProp= {
       center:new google.maps.LatLng(
-        Number(trips[0]['start_lat']),
-        Number(trips[0]['start_long'])),
+        Number(orders[0]['start_lat']),
+        Number(orders[0]['start_long'])),
         zoom:10,
     };
     // alert("working well");
@@ -328,7 +328,7 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
     document.addEventListener("DOMContentLoaded", function() {
       
     
-   var googleMapsDiv= document.getElementById("googleMapTrips");
+   var googleMapsDiv= document.getElementById("googleMapOrders");
 
    distanceDiv= document.getElementById("distance");
 
@@ -341,12 +341,12 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
     // alert("we get here");
     var waypoints = [];
  
-    // if(trips.length>0){
+    // if(orders.length>0){
     // var bounds = new google.maps.LatLngBounds();
     
-    // trips[0]['tripitems'].forEach(tripitem => {
-    //     var lat1 = Number(tripitem['outlet']['lat']);
-    //     var long1 = Number(tripitem['outlet']['long']);
+    // orders[0]['orderitems'].forEach(orderitem => {
+    //     var lat1 = Number(orderitem['outlet']['lat']);
+    //     var long1 = Number(orderitem['outlet']['long']);
     
     //     waypoints.push({ location: { lat: lat1, lng: long1 }, stopover: true });
 
@@ -374,8 +374,8 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
     //         // });
     //         //
     //         var infowindow = new google.maps.InfoWindow({
-    //             content: "<div><h3>"+tripitem['outlet']['name']+"</h3>"+
-    //                 // "<p>Seller: "+( tripitem['outlet']['user']===null ? 'Deleted User': tripitem['outlet']['user']['name'])+"</p>"+
+    //             content: "<div><h3>"+orderitem['outlet']['name']+"</h3>"+
+    //                 // "<p>Seller: "+( orderitem['outlet']['user']===null ? 'Deleted User': orderitem['outlet']['user']['name'])+"</p>"+
     //                 "<p>Latitude: "+lat1+"</p>"+
     //                 "<p>Longitude: "+long1+"</p>"+
     //                 "</div>"
@@ -389,7 +389,7 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
         
        
     //     // var marker = new google.maps.Marker({position: myPosition,
-    //     //     title: tripitem['outlet']['name'],
+    //     //     title: orderitem['outlet']['name'],
     //     // });
     //     // google.maps.event.addListener(marker, 'click', function() {
     //     //         infowindow.open(map,marker);
@@ -428,8 +428,8 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
 
 
 
-    // var lat1 = trips[0]['tripitems'][0]['outlet']['lat'];
-    // var long1 = trips[0]['tripitems'][0]['outlet']['long'];
+    // var lat1 = orders[0]['orderitems'][0]['outlet']['lat'];
+    // var long1 = orders[0]['orderitems'][0]['outlet']['long'];
     // }
 
 });
@@ -449,14 +449,14 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
     var markers = [];
     var locations = [];
 
-    function rewriteMap(trip){
+    function rewriteMap(order){
         
         //alert('we get here');
-        //alert (trip['tripitems'][0]['outlet']['lat']);
+        //alert (order['orderitems'][0]['outlet']['lat']);
         distanceDiv.innerText = "";
 
         
-        //console.log(trip);
+        //console.log(order);
         waypoints=[];
         if(markers==undefined){
             // console.log(markers);
@@ -477,18 +477,18 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
         
  
 
-        waypoints.push({ location: { lat: Number(trip.start_lat) , lng: Number(trip.start_long) }, stopover: true });
+        waypoints.push({ location: { lat: Number(order.start_lat) , lng: Number(order.start_long) }, stopover: true });
                 // Adding a new location
         locations.push({
-            "lat": Number(trip.start_lat),
-            "long": Number(trip.start_long),
-            "date": Number(trip.created_at)
+            "lat": Number(order.start_lat),
+            "long": Number(order.start_long),
+            "date": Number(order.created_at)
         });
         var  count = 0;
-        const totalLocations = trip.locations.length;
+        const totalLocations = order.locations.length;
         const step = Math.ceil(totalLocations / 20); // Calculate step size
 
-        trip.locations.forEach((location, index) => {
+        order.locations.forEach((location, index) => {
             if (index % step === 0) { // Push every 'step'-th location
                 waypoints.push({
                     location: { lat: Number(location.lat), lng: Number(location.long) },
@@ -513,7 +513,7 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
 
        
         
-        if(trip.end_lat==null){
+        if(order.end_lat==null){
             // alert("endpoint undefined")
             // const origin = waypoints.shift().location;
 
@@ -522,12 +522,12 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
             map.fitBounds(bounds);
 
         }else{
-            waypoints.push({ location: { lat: Number(trip.end_lat), lng: Number(
-                trip.end_long) }, stopover: true });
+            waypoints.push({ location: { lat: Number(order.end_lat), lng: Number(
+                order.end_long) }, stopover: true });
             locations.push({
-                "lat": Number(trip.end_lat),
-                "long": Number(trip.end_long),
-                "date": trip.updated_at
+                "lat": Number(order.end_lat),
+                "long": Number(order.end_long),
+                "date": order.updated_at
 
             });
 
