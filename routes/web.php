@@ -27,8 +27,8 @@ Route::middleware(['auth','verified'])->group(function () {
 Route::get('/livetrail', [LocationController::class, 'index']);
 Route::get('/locations', [LocationController::class, 'locationIndex']);
 Route::get('/dailytrails', [LocationController::class, 'otherDaysTrail']);
-Route::get('/currentlocations/{driverid}', [LocationController::class, 'getCurrentLocations']);
-Route::get('/otherdays/{date}/{driverid}', [LocationController::class, 'getOtherDaysLocations']);
+Route::get('/currentlocations/{counsellorid}', [LocationController::class, 'getCurrentLocations']);
+Route::get('/otherdays/{date}/{counsellorid}', [LocationController::class, 'getOtherDaysLocations']);
 
 Route::get('/', [TripController::class, 'index']);
 
@@ -50,13 +50,13 @@ Route::get('/add-admin', [UserController::class,'addAdmin']);
 Route::get('/editadmin/{id}', [UserController::class,'showEditAdmin']);
 Route::put('/saveeditadmin/{id}',[UserController::class,'saveEditAdmin']);
 
-Route::get('/drivers', [UserController::class,'drivers']);
-Route::get('/drivers/{id}/{object}',[UserController::class,'showDriversById']);
-Route::get('/deletedriver/{id}', [UserController::class,'deleteDriver']);
-Route::post('/savedriver', [UserController::class,'saveDriver']);
-Route::get('/add-driver', [UserController::class,'addDriver']);
-Route::get('/editdriver/{id}', [UserController::class,'showEditDriver']);
-Route::put('/saveeditdriver/{id}',[UserController::class,'saveEditDriver']);
+Route::get('/counsellors', [UserController::class,'counsellors']);
+Route::get('/counsellors/{id}/{object}',[UserController::class,'showCounsellorsById']);
+Route::get('/deletecounsellor/{id}', [UserController::class,'deleteCounsellor']);
+Route::post('/savecounsellor', [UserController::class,'saveCounsellor']);
+Route::get('/add-counsellor', [UserController::class,'addCounsellor']);
+Route::get('/editcounsellor/{id}', [UserController::class,'showEditCounsellor']);
+Route::put('/saveeditcounsellor/{id}',[UserController::class,'saveEditCounsellor']);
 
 
 Route::get('/customers', [UserController::class,'customers']);
