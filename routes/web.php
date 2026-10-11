@@ -27,9 +27,10 @@ Route::middleware(['auth','verified'])->group(function () {
 Route::get('/livetrail', [LocationController::class, 'index']);
 Route::get('/locations', [LocationController::class, 'locationIndex']);
 Route::get('/dailytrails', [LocationController::class, 'otherDaysTrail']);
-Route::get('/', [LocationController::class, 'showCurrentLocation']);
 Route::get('/currentlocations/{driverid}', [LocationController::class, 'getCurrentLocations']);
 Route::get('/otherdays/{date}/{driverid}', [LocationController::class, 'getOtherDaysLocations']);
+
+Route::get('/', [TripController::class, 'index']);
 
 Route::get('/trips', [TripController::class, 'index']);
 Route::get('/orders', [TripController::class, 'indexOrders']);
