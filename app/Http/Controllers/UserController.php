@@ -31,37 +31,37 @@ class UserController extends CommonController
 
         //return $users;
         //dd($sales);
-        // $Drivers = TargetGroup::all();
+        // $Counsellor's = TargetGroup::all();
         return view('admin.index', ['users'=>$users]);
     }
 
 
-    public function drivers() {
-        $users = User::where('usertype','driver')->get();
+    public function counsellors() {
+        $users = User::where('usertype','counsellor')->get();
 
         //return $users;
         //dd($sales);
-        // $Drivers = TargetGroup::withTrashed();
+        // $Counsellor's = TargetGroup::withTrashed();
 
-        return view('driver.index', ['users'=>$users]);
+        return view('counsellor.index', ['users'=>$users]);
     }
 
-    public function showDriversById($objectId,$object) {
+    public function showCounsellorsById($objectId,$object) {
         //$visits = Visit::all();
         // $targetgroups = TargetGroup::withTrashed();
-        $drivers=User
+        $counsellors=User
         ::where($object.'_id',$objectId)
-        ->where('usertype','driver')->get();
-        return view('driver.index', ['users'=>$drivers]);
+        ->where('usertype','counsellor')->get();
+        return view('counsellor.index', ['users'=>$counsellors]);
     }
 
-        public function deleteDriver($id){
-        $user = User::where('usertype','driver')->find($id);
+        public function deleteCounsellor($id){
+        $user = User::where('usertype','counsellor')->find($id);
         $user->delete();
-        return redirect('/drivers');
+        return redirect('/counsellors');
     }
 
-        public function saveDriver(Request $request){
+        public function saveCounsellor(Request $request){
         // $teamId = $this->teamIdCheckAssign($request);
 
         // $organizationId=auth()->user()->organization_id;
@@ -84,7 +84,7 @@ class UserController extends CommonController
         
         $incomingFields['name']=strip_tags($incomingFields['name']);
         $incomingFields['phone']=strip_tags($incomingFields['phone']);
-        $incomingFields['usertype']='driver';
+        $incomingFields['usertype']='counsellor';
         // $incomingFields['target_group_id']=strip_tags($incomingFields['target_group_id']);
         // $incomingFields['region_id']=strip_tags($incomingFields['region_id']);
         // $incomingFields['territory_id']=strip_tags($incomingFields['territory_id']);
@@ -128,30 +128,30 @@ class UserController extends CommonController
 
         User::create($incomingFields);
 
-        return redirect('/drivers');
+        return redirect('/counsellors');
         
     }
 
-    public function addDriver() {
+    public function addCounsellor() {
         // $targetgroups = TargetGroup::all();
         // $regions = Region::all();
         // $territories = Territory::all();
         // $teams = Team::all();
         // $clusters = Cluster::all();
-        return view('driver.create');
+        return view('counsellor.create');
     }
 
-    public function showEditDriver($id){
+    public function showEditCounsellor($id){
         $user = User::find($id);
         // $targetgroups = TargetGroup::all();
         // $regions = Region::all();
         // $teams = Team::all();
         // $territories = Territory::all();
         // $clusters = Cluster::all();
-        return view('driver.edit',compact('user'));
+        return view('counsellor.edit',compact('user'));
     }
 
-        public function saveEditDriver($id, Request $request){
+        public function saveEditCounsellor($id, Request $request){
         // $teamId = $this->teamIdCheckAssign($request);
 
         // $organizationId=auth()->user()->organization_id;
@@ -172,7 +172,7 @@ class UserController extends CommonController
         ]);
 
         $incomingFields['name']=strip_tags($incomingFields['name']);
-        //$incomingFields['usertype']='driver';
+        //$incomingFields['usertype']='counsellor';
         $incomingFields['email']=strip_tags($incomingFields['email']);
         // $incomingFields['target_group_id']=strip_tags($incomingFields['target_group_id']);
         $incomingFields['phone']=strip_tags($incomingFields['phone']);
@@ -247,7 +247,7 @@ class UserController extends CommonController
 
         $user->update($incomingFields);
 
-        return redirect('/drivers');
+        return redirect('/counsellors');
         
     }
 
@@ -581,10 +581,10 @@ class UserController extends CommonController
         return view('admin.create');
     }
 
-    // public function uploadDriverProducts() {
-    //     return view('driver.uploaddriverproducts');
+    // public function uploadCounsellorProducts() {
+    //     return view('counsellor.uploadcounsellorproducts');
     // }
-    // public function editDriverStock($id){
+    // public function editCounsellorStock($id){
 
     //     $user = User::inOrganization()->find($id);
     //     $products = Product::with(['stocks' 
@@ -593,7 +593,7 @@ class UserController extends CommonController
     //     }
     //     ])
     //     // ->whereHas('stocks', function ($query) use ($id) {
-    //     //     $query->where('user_id', $id) // Filter by driver
+    //     //     $query->where('user_id', $id) // Filter by counsellor
     //     //         ->where('units', '>', 0); // Include only positive stock
     //     // })
     //     ->orWhere('stock', '>', '0')
@@ -603,10 +603,10 @@ class UserController extends CommonController
 
     //     // return $products;
 
-    //     return view('driver.editstock',compact('products','user'));
+    //     return view('counsellor.editstock',compact('products','user'));
     // }
 
-    // public function saveEditDriverStock($id,Request $request){
+    // public function saveEditCounsellor'Stock($id,Request $request){
 
     //     $user = User::inOrganization()->find($id);
 
@@ -642,7 +642,7 @@ class UserController extends CommonController
     //     // return $test;
 
 
-    //     return redirect('/editdriverstock/'.$id); 
+    //     return redirect('/editcounsellorstock/'.$id); 
 
     // }
 
@@ -772,7 +772,7 @@ class UserController extends CommonController
     public function saveChangePassword($id, Request $request){
         $incomingFields=$request->validate([
             'password'=>'required|confirmed|min:8',
-            'usertype'=>'required|string|in:admin,driver,teamlead'
+            'usertype'=>'required|string|in:admin,counsellor,teamlead'
         ]);
 
         $incomingFields['password']=strip_tags($incomingFields['password']);
@@ -790,7 +790,7 @@ class UserController extends CommonController
         //     return redirect('/teamleads');
         //     }
         {
-            return redirect('/drivers');
+            return redirect('/counsellors');
         }
         
     }

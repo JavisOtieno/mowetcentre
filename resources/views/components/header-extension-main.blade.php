@@ -461,9 +461,9 @@
                             class="side-menu__label">Admins</span></a>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/drivers"><i
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/counsellors"><i
                             class="side-menu__icon fe fe-user"></i><span
-                            class="side-menu__label">Drivers</span></a>
+                            class="side-menu__label">Counsellors</span></a>
                 </li>
                 <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/customers"><i

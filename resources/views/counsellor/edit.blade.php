@@ -9,11 +9,11 @@
 
   <!-- PAGE-HEADER -->
   <div class="page-header">
-    <h1 class="page-title">Drivers</h1>
+    <h1 class="page-title">Counsellors</h1>
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Tracker</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Driver</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Counsellor</li>
         </ol>
     </div>
 </div>
@@ -23,13 +23,13 @@
 <div class="col-xl-12 row">
     <div class="card col-md-8">
         <div class="card-header">
-            <h3 class="card-title">Edit Driver</h3> 
+            <h3 class="card-title">Edit Counsellor</h3> 
         </div>
         <div class="card-body">
             <!--<p>Use <code class="highlighter-rouge">.table-striped</code>to add zebra-striping to any table row within the <code class="highlighter-rouge">.tbody</code>.</p>-->
             
                 
-                    <form action="/saveeditdriver/{{$user['id']}}" method="POST"  enctype="multipart/form-data">
+                    <form action="/saveeditcounsellor/{{$user['id']}}" method="POST"  enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="">
@@ -62,9 +62,9 @@
                                 <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="{{old('email',$user['email'])}}" autocomplete="email">
                             </div>
                             {{-- <div class="form-group">
-                                <label for="driver" class="form-label">User Type</label>
+                                <label for="counsellor" class="form-label">User Type</label>
                                 <select name="usertype" class="form-control form-select select2" data-bs-placeholder="Select User Type">
-                                                    <option {{old('usertype',$user['usertype'])=="driver"? 'selected':''}} value="driver">Driver</option>
+                                                    <option {{old('usertype',$user['usertype'])=="counsellor"? 'selected':''}} value="counsellor">Counsellor</option>
                                                     <option {{old('usertype',$user['usertype'])=="sales"? 'selected':''}} value="sales">Sales</option>
                                 </select>
                             </div>
@@ -94,7 +94,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password" class="form-label">Password</label>
-                                <a href="/changepassword/driver/{{$user['id']}}" class="col-12 btn btn-info mb-0">Change Password</a>                            
+                                <a href="/changepassword/counsellor/{{$user['id']}}" class="col-12 btn btn-info mb-0">Change Password</a>                            
                             </div>
                             
                         </div>
@@ -123,7 +123,7 @@
         <li style="margin-bottom: 10px;"><strong>Name</strong> : This field displays the name of the user and is editable.</li>
         <li style="margin-bottom: 10px;"><strong>Phone</strong> :This field displays the phone number of the user and is editable.</li>
         <li style="margin-bottom: 10px;"><strong>Email</strong> : This field displays the email address of the user and is editable.</li>
-        {{-- <li style="margin-bottom: 10px;"><strong>User Type</strong> : This field displays the type of user (Driver or Sales). It is a dropdown menu where you can select the user type.</li>
+        {{-- <li style="margin-bottom: 10px;"><strong>User Type</strong> : This field displays the type of user (Counsellor or Sales). It is a dropdown menu where you can select the user type.</li>
         <li style="margin-bottom: 10px;"><strong>Targets</strong> : This field displays the target group associated with the user. It is a dropdown menu where you can select the target group. </li> --}}
         <li style="margin-bottom: 10px;"><strong>Date and Time Added</strong> : This field displays the date and time when the user was added. It is disabled and cannot be modified.</li>
         <li style="margin-bottom: 10px;"><strong>Password</strong> : This field provides a button to change the user's password. Clicking on the button will redirect you to a page where you can change the password for the user.</li>

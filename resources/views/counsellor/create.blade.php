@@ -9,11 +9,11 @@
 
   <!-- PAGE-HEADER -->
   <div class="page-header">
-    <h1 class="page-title">Drivers</h1>
+    <h1 class="page-title">Counsellors</h1>
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="javascript:void(0)">Tracker</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Drivers</li>
+            <li class="breadcrumb-item active" aria-current="page">Counsellors</li>
         </ol>
     </div>
 </div>
@@ -23,13 +23,13 @@
 <div class="col-xl-12 row">
     <div class="card col-md-8 ">
         <div class="card-header">
-            <h3 class="card-title">Add Driver</h3> 
+            <h3 class="card-title">Add Counsellor</h3> 
         </div>
         <div class="card-body">
             <!--<p>Use <code class="highlighter-rouge">.table-striped</code>to add zebra-striping to any table row within the <code class="highlighter-rouge">.tbody</code>.</p>-->
             
                 
-                    <form action="/savedriver" method="POST" enctype="multipart/form-data">
+                    <form action="/savecounsellor" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
                         <div class="">
