@@ -75,9 +75,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if(count($orders)>0)
+                        @if(count($trips)>0)
                         
-                        @foreach($orders as $order)
+                        @foreach($trips as $order)
 <tr>
 <td>{{$order['id']}}</td>
 <td><a type="button" href="/order/{{$order['id']}}" class="btn btn-info" style="margin-left: auto;color:white;">View/Edit</a>
@@ -306,7 +306,7 @@ AIzaSyALLsNWwOC09xsRAqrK0S7dINi6BpNc7iw&callback=embedMap2"></script> --}}
     var distanceDiv;
     
     function myMap2() {
-        var orders= @json($orders);
+        var orders= @json($trips);
 
     if(orders[0] != null){
     var mapProp= {
