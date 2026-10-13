@@ -425,19 +425,24 @@
 
                 <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/"><i
-                            class="side-menu__icon fe fe-map-pin"></i><span
+                            class="side-menu__icon fe fe-layout"></i><span
                             class="side-menu__label">Dashboard</span></a>
                 </li>
                 {{-- <li class="slide">
-                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/livetrail"><i
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/sessions"><i
                             class="side-menu__icon fe fe-map"></i><span
                             class="side-menu__label">Live Trail Map</span></a>
                 </li> --}}
             
                                 <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/orders"><i
-                            class="side-menu__icon fe fe-navigation"></i><span
+                            class="side-menu__icon fe fe-bar-chart"></i><span
                             class="side-menu__label">Orders</span></a>
+                </li>
+                                <li class="slide">
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/sessions"><i
+                            class="side-menu__icon fe fe-map"></i><span
+                            class="side-menu__label">Sessions</span></a>
                 </li>
 
               

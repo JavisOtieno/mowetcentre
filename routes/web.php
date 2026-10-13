@@ -1,11 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LocationController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SignupController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\SignupController;
-use App\Http\Controllers\LocationController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,14 @@ Route::get('/currentlocations/{counsellorid}', [LocationController::class, 'getC
 Route::get('/otherdays/{date}/{counsellorid}', [LocationController::class, 'getOtherDaysLocations']);
 
 Route::get('/', [TripController::class, 'index']);
+
+Route::get('/sessions', [SessionController::class, 'index']);
+Route::post('/savesession',[SessionController::class,'saveSession']);
+Route::get('/createsession', [SessionController::class,'addSession']);
+Route::get('/session/{id}', [SessionController::class,'showEditSession']);
+Route::put('/saveeditsession/{id}',[SessionController::class,'saveEditSession']);
+Route::get('/deletesession/{id}', [SessionController::class,'deleteSession']);
+
 
 Route::get('/trips', [TripController::class, 'index']);
 Route::get('/orders', [TripController::class, 'indexOrders']);
