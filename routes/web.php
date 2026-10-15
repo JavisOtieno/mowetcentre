@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\TripController;
@@ -40,9 +41,13 @@ Route::get('/session/{id}', [SessionController::class,'showEditSession']);
 Route::put('/saveeditsession/{id}',[SessionController::class,'saveEditSession']);
 Route::get('/deletesession/{id}', [SessionController::class,'deleteSession']);
 
+Route::get('/orders', [OrderController::class, 'index']);
+Route::get('/createorder', [OrderController::class,'addOrder']);
+Route::post('/saveorder',[OrderController::class,'saveOrder']);
+
 
 Route::get('/trips', [TripController::class, 'index']);
-Route::get('/orders', [TripController::class, 'indexOrders']);
+// Route::get('/orders', [TripController::class, 'indexOrders']);
 Route::get('/createtrip', [TripController::class,'addTrip']);
 Route::get('/deletetrip/{id}', [TripController::class,'deleteTrip']);
 Route::post('/savetrip',[TripController::class,'saveTrip']);

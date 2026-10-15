@@ -23,7 +23,7 @@
 <div class="col-xl-12 row">
     <div class="card col-md-8 ">
         <div class="card-header">
-            <h3 class="card-title">Add Order</h3> 
+            <h3 class="card-title">Add Session</h3> 
         </div>
         <div class="card-body">
             <!--<p>Use <code class="highlighter-rouge">.table-sordered</code>to add zebra-sordering to any table row within the <code class="highlighter-rouge">.tbody</code>.</p>-->
@@ -80,7 +80,7 @@
              
             <h5 class="card-title">Quick Tips</h5>
            <ol class="card-text">
-                <li style="margin-bottom: 10px;"><strong>Name </strong>: Enter the name of the order. </li>
+                <li style="margin-bottom: 10px;"><strong>Title </strong>: Enter the title of the session. </li>
             </ol>
           </div>
         </div>
