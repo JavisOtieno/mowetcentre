@@ -84,10 +84,10 @@
 <td>{{$order['id']}}</td>
 <td><a type="button" href="/order/{{$order['id']}}" class="btn btn-info" style="margin-left: auto;color:white;">View/Edit</a>
 </td>
-<td><a type="button" onclick="deleteItem('{{$order['id']}}','{{$order['title']}}','{{$order['counsellor']['name']}}')"  class="btn btn-danger" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#modalDelete">Delete</a>
+<td><a type="button" onclick="deleteItem('{{$order['id']}}','{{$order['description']}}','{{$order['customer']['name']}}')"  class="btn btn-danger" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#modalDelete">Delete</a>
 </td>
 <td>{{$order['description']}}</td>
-{{-- <td>{{$order['counsellor'] ? $order['counsellor']['name']  . ($order['counsellor']->trashed() ? ' (Deleted Counsellor)' : '') : 'Deleted Counsellor'}} --}}
+{{-- <td>{{$order['customer'] ? $order['customer']['name']  . ($order['customer']->trashed() ? ' (Deleted Counsellor)' : '') : 'Deleted Counsellor'}} --}}
     {{-- <td>{{$posaudit['user']['name']}}</td> --}}
 {{-- <td>{{ $order['customer'] ? $order['customer']['name']  . ($order['customer']->trashed() ? ' (Deleted Customer)' : '') : 'Deleted Customer'}}
 <td>{{$order['start_location']}}</td>
@@ -161,7 +161,7 @@
     function deleteItem(id,name,seller){
         //alert(id);
         var itemDetails = document.getElementById("itemDetails");
-        itemDetails.innerHTML = "Order Name: "+name+"<br/> Counsellor Name: "+seller;
+        itemDetails.innerHTML = "Order Description: "+name+"<br/> Customer Name: "+seller;
         var confirmDeleteLink = document.getElementById('confirmDelete'); //or grab it by tagname etc
         confirmDeleteLink.href = "/deleteorder/"+id;
     }

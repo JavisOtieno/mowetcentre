@@ -52,19 +52,33 @@
                           
 
                     
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="counsellor_name" class="form-label">Counsellor Name</label>
                             <input readonly type="text" class="form-control" name="counsellor_name" id="counsellor_name" placeholder="Counsellor Name" value="{{ old('counsellor_name', ($session['counsellor']?$session['counsellor']['name']:'Counsellor Not Found') ) }}" autocomplete="counsellor_name">
-                        </div>
+                        </div> --}}
 
                             <div class="form-group">
                                 <label for="title" class="form-label">Title</label>
                                 <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="{{ old('title', $session['title']) }}" autocomplete="title">
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="counsellor_id" class="form-label">Counsellor Id</label>
                                 <input type="text" class="form-control" name="counsellor_id" id="counsellor_id" placeholder="Counsellor Id" value="{{ old('counsellor_id', $session['counsellor_id']) }}" autocomplete="counsellor_id">
-                            </div>
+                            </div> --}}
+
+                                                                                <div class="form-group">
+                            <label class="form-label"> Counsellor</label>
+                            <select class="form-control select2-show-search form-select" name="counsellor_id" id="counsellor_id" data-placeholder="Choose one">
+                                    <option label="Choose one"></option>
+                                    @foreach($counsellors as $counsellor)
+                                    <option 
+                                    {{-- {{old('counsellor_id','')==$counsellor['id']? 'selected':''}} --}}
+                                    {{old('counsellor_id',$session['counsellor_id'])==$counsellor['id']? 'selected':''}}
+                                    value="{{$counsellor['id']}}">{{$counsellor['name']}}</option>
+                                    @endforeach
+                                    
+                                </select>
+                        </div>
 
                     
                           

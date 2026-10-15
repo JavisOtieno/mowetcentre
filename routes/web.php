@@ -44,6 +44,10 @@ Route::get('/deletesession/{id}', [SessionController::class,'deleteSession']);
 Route::get('/orders', [OrderController::class, 'index']);
 Route::get('/createorder', [OrderController::class,'addOrder']);
 Route::post('/saveorder',[OrderController::class,'saveOrder']);
+Route::get('/order/{id}', [OrderController::class,'showEditOrder']);
+Route::put('/saveeditorder/{id}',[OrderController::class,'saveEditOrder']);
+Route::get('/deleteorder/{id}', [OrderController::class,'deleteOrder']);
+
 
 
 Route::get('/trips', [TripController::class, 'index']);

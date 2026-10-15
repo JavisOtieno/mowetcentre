@@ -29,7 +29,7 @@
             <!--<p>Use <code class="highlighter-rouge">.table-sordered</code>to add zebra-sordering to any table row within the <code class="highlighter-rouge">.tbody</code>.</p>-->
             
                 
-                    <form action="/savesession" method="POST">
+                    <form action="/saveorder" method="POST">
                         @csrf
                         @method('POST')
                         <div class="">
@@ -52,16 +52,27 @@
                             @endif
 
                             <div class="form-group">
-                                <label for="title" class="form-label">Title</label>
-                                <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="{{ old('title', '') }}" autocomplete="title">
+                                <label for="description" class="form-label">Description</label>
+                                <input type="text" class="form-control" name="description" id="description" placeholder="Description" value="{{ old('description', '') }}" autocomplete="description">
                             </div>
 
                          
 
-                            <div class="form-group">
-                                <label for="end_long" class="form-label">Counsellor Id</label>
-                                <input type="number" class="form-control" name="counsellor_id" id="counsellor_id" placeholder="Counsellor Id" value="{{ old('counsellor_id', '') }}" autocomplete="counsellor_id">
-                            </div>
+                            {{-- <div class="form-group">
+                                <label for="end_long" class="form-label">Customer Id</label>
+                                <input type="number" class="form-control" name="customer_id" id="customer_id" placeholder="Customer Id" value="{{ old('customer_id', '') }}" autocomplete="customer_id">
+                            </div> --}}
+
+                                                        <div class="form-group">
+                            <label class="form-label"> Customer</label>
+                            <select class="form-control select2-show-search form-select" name="customer_id" id="customer_id" data-placeholder="Choose one">
+                                    <option label="Choose one"></option>
+                                    @foreach($customers as $customer)
+                                    <option {{old('customer_id','')==$customer['id']? 'selected':''}} value="{{$customer['id']}}">{{$customer['name']}}</option>
+                                    @endforeach
+                                    
+                                </select>
+                        </div>
 
 
 

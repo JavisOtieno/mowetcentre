@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Session;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class SessionController extends Controller
@@ -30,7 +31,8 @@ class SessionController extends Controller
     }
 
     public function addSession() {
-        return view('session.create');
+        $counsellors = User::all();
+        return view('session.create', compact('counsellors'));
     }
 
     public function saveSession(Request $request){
@@ -55,7 +57,8 @@ class SessionController extends Controller
     }
     public function showEditSession($id){
         $session = Session::find($id);
-        return view('session.edit',['session'=>$session]);
+        $counsellors = User::all();
+        return view('session.edit',['session'=>$session, 'counsellors'=>$counsellors]);
     }
     public function saveEditSession($id, Request $request){
 

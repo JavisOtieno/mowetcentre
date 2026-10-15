@@ -58,10 +58,21 @@
 
                          
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="end_long" class="form-label">Counsellor Id</label>
                                 <input type="number" class="form-control" name="counsellor_id" id="counsellor_id" placeholder="Counsellor Id" value="{{ old('counsellor_id', '') }}" autocomplete="counsellor_id">
-                            </div>
+                            </div> --}}
+
+                                                    <div class="form-group">
+                            <label class="form-label"> Counsellor</label>
+                            <select class="form-control select2-show-search form-select" name="counsellor_id" id="counsellor_id" data-placeholder="Choose one">
+                                    <option label="Choose one"></option>
+                                    @foreach($counsellors as $counsellor)
+                                    <option {{old('counsellor_id','')==$counsellor['id']? 'selected':''}} value="{{$counsellor['id']}}">{{$counsellor['name']}}</option>
+                                    @endforeach
+                                    
+                                </select>
+                        </div>
 
 
 
