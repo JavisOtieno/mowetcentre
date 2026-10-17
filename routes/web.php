@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
@@ -32,7 +33,7 @@ Route::get('/dailytrails', [LocationController::class, 'otherDaysTrail']);
 Route::get('/currentlocations/{counsellorid}', [LocationController::class, 'getCurrentLocations']);
 Route::get('/otherdays/{date}/{counsellorid}', [LocationController::class, 'getOtherDaysLocations']);
 
-Route::get('/', [TripController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index']);
 
 Route::get('/sessions', [SessionController::class, 'index']);
 Route::post('/savesession',[SessionController::class,'saveSession']);
