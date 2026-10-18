@@ -2,6 +2,16 @@
 
 @section('content')
 
+@php
+// Determine the row counts
+// $outletsTableCount = count($outlets);
+// $salesTableCount = count($sales);
+$ordersTableCount = count($orders) > 0 ? count($orders) : 1;
+$sessionsTableCount = count($sessions) > 0 ? count($sessions) : 1;
+// Calculate the difference
+$differenceOrdersSessions = abs($ordersTableCount - $sessionsTableCount);
+@endphp
+
 <div class="side-app">
 
     <!-- CONTAINER -->
@@ -25,8 +35,8 @@
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="mt-2">
-                            <h6 class="">Total Sales</h6>
-                            <h2 class="mb-0 number-font">{{$sessionsCount}}</h2>
+                            <h6 class="">Total Orders</h6>
+                            <h2 class="mb-0 number-font">{{$ordersCount}}</h2>
                         </div>
                         <div class="ms-auto">
                             <div class="chart-wrapper mt-1">
@@ -36,7 +46,7 @@
                         </div>
                     </div>
                     <span class="text-muted fs-12"><span class="text-secondary"><i
-                                class="fe fe-arrow-up-circle  text-secondary"></i> {{$sessionsCount}}</span>
+                                class="fe fe-arrow-up-circle  text-secondary"></i> {{$ordersCount}}</span>
                         This week</span>
                 </div>
             </div>
@@ -67,8 +77,8 @@
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="mt-2">
-                            <h6 class="">Total Outlets</h6>
-                            <h2 class="mb-0 number-font">{{$sessionsCount}}</h2>
+                            <h6 class="">Total Counsellors</h6>
+                            <h2 class="mb-0 number-font">{{$usersCount}}</h2>
                         </div>
                         <div class="ms-auto">
                             <div class="chart-wrapper mt-1">
@@ -88,8 +98,8 @@
                 <div class="card-body">
                     <div class="d-flex">
                         <div class="mt-2">
-                            <h6 class="">Total Products</h6>
-                            <h2 class="mb-0 number-font">{{$sessionsCount}}</h2>
+                            <h6 class="">Total Customers</h6>
+                            <h2 class="mb-0 number-font">{{$usersCount}}</h2>
                         </div>
                         <div class="ms-auto">
                             <div class="chart-wrapper mt-1">
@@ -106,112 +116,116 @@
         </div>
     </div>
 
+    <div class="row">
+   
 
-<div class="col-xl-12">
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Create Order</h3>
-            <a type="button" href="/createorder" class="btn btn-danger col-md-3" 
-            style="margin-left: auto;margin-right:20px;margin-top:10px;margin-bottom:10px;color:white;"
-            >Create Order</a>
-        </div>
-        <div class="row" style="margin: 0 10px;">
-            <input type="hidden" id="tableLoaded" value="orders"/>
-            <h3 class="card-title" style="margin-top:20px;margin-block-end: 0rem;">Search by :</h3>
-            {{-- <div class="col-md-3 mb-3">
-                <label for="name" class="form-label">Test Name</label>
-                <input type="text" class="form-control" id="nameInput" placeholder="Name">
-            </div> --}}
-            <div class="col-md-3 mb-3">
-                <label for="driverName" class="form-label">Driver Name</label>
-                <input type="text" class="form-control" id="driverNameInput" placeholder="Driver Name">
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Recent Sessions</h3>
             </div>
-            <div class="col-md-3 mb-3">
-                <label for="date" class="form-label">From</label>
-                <input type="date" class="form-control" id="dateFromInput" placeholder="Min Date">
-            </div>
-            <div class="col-md-3 mb-3">
-                <label for="date" class="form-label">To</label>
-                <input type="date" class="form-control" id="dateToInput" placeholder="Max Date">
-            </div>
-            
-            
-        </div>
-        <div class="card-body">
-            <!--<p>Use <code class="highlighter-rouge">.table-sordered</code>to add zebra-sordering to any table row within the <code class="highlighter-rouge">.tbody</code>.</p>-->
-            <div class="table-responsive">
-                <table id="responsive-datatable" class="table table-bordered text-nowrap border-bottom">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th id="view-column">View/Edit</th>
-                            <th id="delete-column">Delete</th>
-                            <th>Description</th>
-                            {{-- <th>Counsellor</th> --}}
-                            <th>Customer</th>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table border text-nowrap text-md-nowrap table-striped mb-0">
+                        <thead>
+                            <tr>
+                                {{-- <th>ID</th> --}}
+                                <th>Session ID</th>
+                                <th>User Name</th>
+                                <th>Session Date</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(count($sessions)>0)
+                            @foreach($sessions as $session)
+                            <tr>
+                            {{-- <td>{{$session['id']}}</td> --}}
+                            <td>{{$session['id']}}</td>
+                            <td>{{$session['counsellor']['name']}}</td>
+                            <td>{{date('d-M-Y', strtotime($session['created_at']))}}</td>
+                            </tr>
+                            @endforeach
+                            @else
+                            <!--let datatables display no data available-->
+                            <tr>
+                                <td colspan="4" style="text-align: center">No sessions so far</td>
+                            </tr>
+                            @endif
 
+                            {{-- Add empty rows if necessary --}}
+                            {{-- @for($i = 0; $i < $differenceOutletsSales && 
+                            $outletsTableCount < $salesTableCount; $i++)
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            @endfor --}}
 
-                            {{-- <th>Customer</th>
-                            <th>Start Location</th>
-                            <th>End Location</th> --}}
-                           
-                            <th>Date</th>
-                            <th>Time</th>
-                    
                             
-                            {{-- <th id="map-column">Map</th> --}}
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if(count($orders)>0)
-                        
-                        @foreach($orders as $order)
-<tr>
-<td>{{$order['id']}}</td>
-<td><a type="button" href="/order/{{$order['id']}}" class="btn btn-info" style="margin-left: auto;color:white;">View/Edit</a>
-</td>
-<td><a type="button" onclick="deleteItem('{{$order['id']}}','{{$order['description']}}','{{$order['customer']['name']}}')"  class="btn btn-danger" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#modalDelete">Delete</a>
-</td>
-<td>{{$order['description']}}</td>
-{{-- <td>{{$order['customer'] ? $order['customer']['name']  . ($order['customer']->trashed() ? ' (Deleted Counsellor)' : '') : 'Deleted Counsellor'}} --}}
-    {{-- <td>{{$posaudit['user']['name']}}</td> --}}
-{{-- <td>{{ $order['customer'] ? $order['customer']['name']  . ($order['customer']->trashed() ? ' (Deleted Customer)' : '') : 'Deleted Customer'}}
-<td>{{$order['start_location']}}</td>
-<td>{{$order['end_location']}}</td> --}}
-<td>{{$order['customer'] ? $order['customer']['name']  . ($order['customer']->trashed() ? ' (Deleted Customer)' : '') : 'Deleted Customer'}}
-
-<td>{{date('d-M-Y', strtotime($order['created_at']))}}</td>
-<td>{{date('H:i', strtotime($order['created_at']))}}</td>
-
-
-
-
-{{-- <td>
-    <form method="POST" action="{{ route('editproduct') }}">
-        @csrf
-        <input type="hidden" name="id" value="{{ $product->id }}">
-        <!-- Other form fields -->
-        <button type="submit" class="btn btn-info">View</button>
-    </form>
-</td> --}}
-
-</tr>
-@endforeach
-
-@else
-                                    <!--<tr><td colspan="7" style="text-align: center">No sales so far</td></tr>-->
-                                    <!--let datatables display no data available-->
-                                    @endif
-
-                        
-                           
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
-</div>
+
+      <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Recent Orders</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table border text-nowrap text-md-nowrap table-striped mb-0">
+                        <thead>
+                            <tr>
+                                {{-- <th>ID</th> --}}
+                                <th>Order ID</th>
+                                <th>Customer Name</th>
+                                <th>Order Date</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(count($orders)>0)
+                            @foreach($orders as $order)
+                            <tr>
+                            {{-- <td>{{$order['id']}}</td> --}}
+                            <td>{{$order['id']}}</td>
+                            <td>{{$order['customer']['name']}}</td>
+                            <td>{{date('d-M-Y', strtotime($order['created_at']))}}</td>
+                            </tr>
+                            @endforeach
+                            @else
+                            <!--let datatables display no data available-->
+                            <tr>
+                                <td colspan="4" style="text-align: center">No orders so far</td>
+                            </tr>
+                            @endif
+
+                            {{-- Add empty rows if necessary --}}
+                            @for($i = 0; $i < $differenceOrdersSessions && 
+                            $ordersTableCount < $sessionsTableCount; $i++)
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            @endfor
+
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
 
     </div>
 </div>
