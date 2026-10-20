@@ -10,6 +10,11 @@ $ordersTableCount = count($orders) > 0 ? count($orders) : 1;
 $sessionsTableCount = count($sessions) > 0 ? count($sessions) : 1;
 // Calculate the difference
 $differenceOrdersSessions = abs($ordersTableCount - $sessionsTableCount);
+
+$counsellorsTableCount = count($counsellors) > 0 ? count($counsellors) : 1;
+$customersTableCount = count($customers) > 0 ? count($customers) : 1;
+// Calculate the difference
+$differenceCounsellorsCustomers = abs($counsellorsTableCount - $customersTableCount);
 @endphp
 
 <div class="side-app">
@@ -46,7 +51,7 @@ $differenceOrdersSessions = abs($ordersTableCount - $sessionsTableCount);
                         </div>
                     </div>
                     <span class="text-muted fs-12"><span class="text-secondary"><i
-                                class="fe fe-arrow-up-circle  text-secondary"></i> {{$ordersCount}}</span>
+                                class="fe fe-arrow-up-circle  text-secondary"></i> {{$ordersWeekCount}}</span>
                         This week</span>
                 </div>
             </div>
@@ -67,7 +72,7 @@ $differenceOrdersSessions = abs($ordersTableCount - $sessionsTableCount);
                         </div>
                     </div>
                     <span class="text-muted fs-12"><span class="text-pink"><i
-                                class="fe fe-arrow-up-circle text-pink"></i> {{$sessionsCount}}</span>
+                                class="fe fe-arrow-up-circle text-pink"></i> {{$sessionsWeekCount}}</span>
                         This Week</span>
                 </div>
             </div>
@@ -78,7 +83,7 @@ $differenceOrdersSessions = abs($ordersTableCount - $sessionsTableCount);
                     <div class="d-flex">
                         <div class="mt-2">
                             <h6 class="">Total Counsellors</h6>
-                            <h2 class="mb-0 number-font">{{$usersCount}}</h2>
+                            <h2 class="mb-0 number-font">{{$counsellorsCount}}</h2>
                         </div>
                         <div class="ms-auto">
                             <div class="chart-wrapper mt-1">
@@ -88,7 +93,7 @@ $differenceOrdersSessions = abs($ordersTableCount - $sessionsTableCount);
                         </div>
                     </div>
                     <span class="text-muted fs-12"><span class="text-green"><i
-                                class="fe fe-arrow-up-circle text-green"></i> {{$sessionsCount}}</span>
+                                class="fe fe-arrow-up-circle text-green"></i> {{$counsellorsWeekCount}}</span>
                         This week</span>
                 </div>
             </div>
@@ -99,7 +104,7 @@ $differenceOrdersSessions = abs($ordersTableCount - $sessionsTableCount);
                     <div class="d-flex">
                         <div class="mt-2">
                             <h6 class="">Total Customers</h6>
-                            <h2 class="mb-0 number-font">{{$usersCount}}</h2>
+                            <h2 class="mb-0 number-font">{{$customersCount}}</h2>
                         </div>
                         <div class="ms-auto">
                             <div class="chart-wrapper mt-1">
@@ -109,7 +114,7 @@ $differenceOrdersSessions = abs($ordersTableCount - $sessionsTableCount);
                         </div>
                     </div>
                     <span class="text-muted fs-12"><span class="text-warning"><i
-                                class="fe fe-arrow-up-circle text-warning"></i> {{$sessionsCount}}</span>
+                                class="fe fe-arrow-up-circle text-warning"></i> {{$customersWeekCount}}</span>
                         This Week</span>
                 </div>
             </div>
@@ -207,7 +212,115 @@ $differenceOrdersSessions = abs($ordersTableCount - $sessionsTableCount);
 
                             {{-- Add empty rows if necessary --}}
                             @for($i = 0; $i < $differenceOrdersSessions && 
-                            $ordersTableCount < $sessionsTableCount; $i++)
+                            $ordersTableCount <> $sessionsTableCount; $i++)
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            @endfor
+
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+        <div class="row">
+   
+
+    <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Recent Counsellors</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table border text-nowrap text-md-nowrap table-striped mb-0">
+                        <thead>
+                            <tr>
+                                {{-- <th>ID</th> --}}
+                                <th>Counsellor ID</th>
+                                <th>Counsellor Name</th>
+                                <th>Date</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(count($counsellors)>0)
+                            @foreach($counsellors as $counsellor)
+                            <tr>
+                            {{-- <td>{{$counsellor['id']}}</td> --}}
+                            <td>{{$counsellor['id']}}</td>
+                            <td>{{$counsellor['name']}}</td>
+                            <td>{{date('d-M-Y', strtotime($counsellor['created_at']))}}</td>
+                            </tr>
+                            @endforeach
+                            @else
+                            <!--let datatables display no data available-->
+                            <tr>
+                                <td colspan="4" style="text-align: center">No sessions so far</td>
+                            </tr>
+                            @endif
+
+                            {{-- Add empty rows if necessary --}}
+                            {{-- @for($i = 0; $i < $differenceOutletsSales && 
+                            $outletsTableCount < $salesTableCount; $i++)
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            @endfor --}}
+
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <div class="col-xl-6">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Recent Customers</h3>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table border text-nowrap text-md-nowrap table-striped mb-0">
+                        <thead>
+                            <tr>
+                                {{-- <th>ID</th> --}}
+                                <th>Customer ID</th>
+                                <th>Customer Name</th>
+                                <th>Registration Date</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if(count($customers)>0)
+                            @foreach($customers as $customer)
+                            <tr>
+                            {{-- <td>{{$customer['id']}}</td> --}}
+                            <td>{{$customer['id']}}</td>
+                            <td>{{$customer['name']}}</td>
+                            <td>{{date('d-M-Y', strtotime($customer['created_at']))}}</td>
+                            </tr>
+                            @endforeach
+                            @else
+                            <!--let datatables display no data available-->
+                            <tr>
+                                <td colspan="4" style="text-align: center">No customers so far</td>
+                            </tr>
+                            @endif
+
+                            {{-- Add empty rows if necessary --}}
+                            @for($i = 0; $i < $differenceCounsellorsCustomers && 
+                            $counsellorsTableCount <> $customersTableCount; $i++)
                             <tr>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
