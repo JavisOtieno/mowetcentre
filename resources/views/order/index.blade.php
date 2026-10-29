@@ -36,7 +36,7 @@
                 <input type="text" class="form-control" id="nameInput" placeholder="Name">
             </div> --}}
             <div class="col-md-3 mb-3">
-                <label for="driverName" class="form-label">Driver Name</label>
+                <label for="driverName" class="form-label">Customer Name</label>
                 <input type="text" class="form-control" id="driverNameInput" placeholder="Driver Name">
             </div>
             <div class="col-md-3 mb-3">
