@@ -37,7 +37,7 @@
             </div> --}}
             <div class="col-md-3 mb-3">
                 <label for="driverName" class="form-label">Counsellor Name</label>
-                <input type="text" class="form-control" id="driverNameInput" placeholder="Driver Name">
+                <input type="text" class="form-control" id="driverNameInput" placeholder="Counsellor Name">
             </div>
             <div class="col-md-3 mb-3">
                 <label for="date" class="form-label">From</label>
