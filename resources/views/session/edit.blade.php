@@ -12,7 +12,7 @@
     <h1 class="page-title">Sessions</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Tracker</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Mowet</a></li>
             <li class="breadcrumb-item active" aria-current="page">Edit Session</li>
         </ol>
     </div>
@@ -60,6 +60,10 @@
                             <div class="form-group">
                                 <label for="title" class="form-label">Title</label>
                                 <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="{{ old('title', $session['title']) }}" autocomplete="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="mode" class="form-label">Mode</label>
+                                <input type="text" class="form-control" name="mode" id="mode" placeholder="Mode" value="{{ old('mode', $session['mode']) }}" autocomplete="mode">
                             </div>
                             {{-- <div class="form-group">
                                 <label for="counsellor_id" class="form-label">Counsellor Id</label>

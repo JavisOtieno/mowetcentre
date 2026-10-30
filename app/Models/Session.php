@@ -10,6 +10,7 @@ class Session extends Model
     use HasFactory;
     protected $fillable = [
         'title',
+        'mode',
         'counsellor_id',
         // Add any other columns you want to mass-assign later
         // 'scheduled_at',

@@ -12,7 +12,7 @@
     <h1 class="page-title">Sessions</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Tracker</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Mowet</a></li>
             <li class="breadcrumb-item active" aria-current="page">Sessions</li>
         </ol>
     </div>
@@ -60,6 +60,7 @@
                             <th id="view-column">View/Edit</th>
                             <th id="delete-column">Delete</th>
                             <th>Title</th>
+                            <th>Mode</th>
                             <th>Counsellor</th>
 
 
@@ -86,6 +87,7 @@
 <td><a type="button" onclick="deleteItem('{{$session['id']}}','{{$session['title']}}','{{$session['counsellor']['name']}}')"  class="btn btn-danger" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#modalDelete">Delete</a>
 </td>
 <td>{{$session['title']}}</td>
+<td>{{$session['mode']}}</td>
 <td>{{ $session['counsellor'] ? $session['counsellor']['name']  . ($session['counsellor']->trashed() ? ' (Deleted Counsellor)' : '') : 'Deleted Customer'}}
     {{-- <td>{{$posaudit['user']['name']}}</td> --}}
 {{-- <td>{{ $session['customer'] ? $session['customer']['name']  . ($session['customer']->trashed() ? ' (Deleted Customer)' : '') : 'Deleted Customer'}}

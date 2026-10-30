@@ -39,6 +39,7 @@ class SessionController extends Controller
 
         $incomingFields=$request->validate([
             'title'=>'required|string|max:255',
+            'mode'=>'required|string|max:255',
             'counsellor_id'=>'required|integer|exists:users,id',
         ]);
         //return $incomingFields;
@@ -64,6 +65,7 @@ class SessionController extends Controller
 
         $incomingFields=$request->validate([
             'title'=>'required|string|max:255',
+            'mode'=>'required|string|max:255',
             'counsellor_id'=>'required|integer|exists:users,id',
         ]);
 

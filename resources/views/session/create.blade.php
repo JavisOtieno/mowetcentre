@@ -12,7 +12,7 @@
     <h1 class="page-title">Orders</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javascript:void(0)">Tracker</a></li>
+            <li class="breadcrumb-item"><a href="javascript:void(0)">Mowet</a></li>
             <li class="breadcrumb-item active" aria-current="page">Orders</li>
         </ol>
     </div>
@@ -52,8 +52,13 @@
                             @endif
 
                             <div class="form-group">
-                                <label for="title" class="form-label">Title</label>
+                                <label for="title" class="form-label">Topic</label>
                                 <input type="text" class="form-control" name="title" id="title" placeholder="Title" value="{{ old('title', '') }}" autocomplete="title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mode" class="form-label">Mode</label>
+                                <input type="text" class="form-control" name="mode" id="mode" placeholder="Mode" value="{{ old('mode', '') }}" autocomplete="mode">
                             </div>
 
                          
@@ -63,8 +68,8 @@
                                 <input type="number" class="form-control" name="counsellor_id" id="counsellor_id" placeholder="Counsellor Id" value="{{ old('counsellor_id', '') }}" autocomplete="counsellor_id">
                             </div> --}}
 
-                                                    <div class="form-group">
-                            <label class="form-label"> Counsellor</label>
+                        <div class="form-group">
+                            <label class="form-label"> Facilitator</label>
                             <select class="form-control select2-show-search form-select" name="counsellor_id" id="counsellor_id" data-placeholder="Choose one">
                                     <option label="Choose one"></option>
                                     @foreach($counsellors as $counsellor)
