@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\TripController;
@@ -34,6 +35,10 @@ Route::get('/currentlocations/{counsellorid}', [LocationController::class, 'getC
 Route::get('/otherdays/{date}/{counsellorid}', [LocationController::class, 'getOtherDaysLocations']);
 
 Route::get('/', [DashboardController::class, 'index']);
+
+Route::get('/patients', [PatientController::class, 'index']);
+Route::post('/savepatient',[PatientController::class,'savePatient']);
+Route::get('/createpatient', [PatientController::class,'addPatient']);
 
 Route::get('/sessions', [SessionController::class, 'index']);
 Route::post('/savesession',[SessionController::class,'saveSession']);
