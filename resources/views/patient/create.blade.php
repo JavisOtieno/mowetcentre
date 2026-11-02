@@ -73,7 +73,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="Phone" value="{{ old('phone', '') }}" autocomplete="phone">        
+                                <input type="text" class="form-control" name="phone" placeholder="Phone" value="{{ old('phone', '') }}" autocomplete="phone">        
                             </div>
                             <div class="form-group">
                                 <label for="email" class="form-label">Email</label>

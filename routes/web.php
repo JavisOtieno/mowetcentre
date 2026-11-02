@@ -39,6 +39,10 @@ Route::get('/', [DashboardController::class, 'index']);
 Route::get('/patients', [PatientController::class, 'index']);
 Route::post('/savepatient',[PatientController::class,'savePatient']);
 Route::get('/createpatient', [PatientController::class,'addPatient']);
+Route::get('/patient/{id}', [PatientController::class,'showEditPatient']);
+Route::put('/saveeditpatient/{id}',[PatientController::class,'saveEditPatient']);
+Route::get('/deletepatient/{id}', [PatientController::class,'deletePatient']);
+
 
 Route::get('/sessions', [SessionController::class, 'index']);
 Route::post('/savesession',[SessionController::class,'saveSession']);

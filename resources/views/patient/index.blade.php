@@ -84,7 +84,7 @@
 <td>{{$patient['id']}}</td>
 <td><a type="button" href="/patient/{{$patient['id']}}" class="btn btn-info" style="margin-left: auto;color:white;">View/Edit</a>
 </td>
-<td><a type="button" onclick="deleteItem('{{$patient['id']}}','{{$patient['title']}}','{{$patient['counsellor']['name']}}')"  class="btn btn-danger" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#modalDelete">Delete</a>
+<td><a type="button" onclick="deleteItem('{{$patient['id']}}','{{$patient['name']}}','{{$patient['phone']}}')"  class="btn btn-danger" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#modalDelete">Delete</a>
 </td>
 <td>{{$patient['name']}}</td>
 <td>{{$patient['phone']}}</td>
