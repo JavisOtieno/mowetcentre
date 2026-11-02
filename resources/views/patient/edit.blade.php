@@ -75,7 +75,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="gender" class="form-label">Gender</label>
-                                <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" value="{{ old('gender', $patient['gender']) }}" autocomplete="gender">
+                                {{-- <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" value="{{ old('gender', $patient['gender']) }}" autocomplete="gender"> --}}
+                                <select name="gender" class="form-control form-select select2" data-bs-placeholder="Select Gender">
+                                    <option value="male" {{ old('gender', $patient['gender']) == 'male' ? 'selected' : '' }}>Male</option>
+                                    <option value="female" {{ old('gender', $patient['gender']) == 'female' ? 'selected' : '' }}>Female</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="address" class="form-label">Address</label>

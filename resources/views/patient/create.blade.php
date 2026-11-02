@@ -81,7 +81,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="address" class="form-label">Gender</label>
-                                <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" value="{{ old('gender', '') }}" autocomplete="gender">
+                                {{-- <input type="text" class="form-control" name="gender" id="gender" placeholder="Gender" value="{{ old('gender', '') }}" autocomplete="gender"> --}}
+                                  <select name="gender" id="gender" class="form-control form-select select2" data-bs-placeholder="Select Gender">
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                       
+                </select>
                             </div>
                             <div class="form-group">
                                 <label for="address" class="form-label">Address</label>

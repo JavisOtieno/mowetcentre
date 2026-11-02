@@ -36,8 +36,8 @@
                 <input type="text" class="form-control" id="nameInput" placeholder="Name">
             </div> --}}
             <div class="col-md-3 mb-3">
-                <label for="driverName" class="form-label">Counsellor Name</label>
-                <input type="text" class="form-control" id="driverNameInput" placeholder="Counsellor Name">
+                <label for="driverName" class="form-label">Patient Name</label>
+                <input type="text" class="form-control" id="driverNameInput" placeholder="Patient Name">
             </div>
             <div class="col-md-3 mb-3">
                 <label for="date" class="form-label">From</label>
@@ -88,7 +88,7 @@
 </td>
 <td>{{$patient['name']}}</td>
 <td>{{$patient['phone']}}</td>
-<td>{{$patient['gender']}}</td>
+<td>{{ ucfirst($patient['gender']) }}</td>
     {{-- <td>{{$posaudit['user']['name']}}</td> --}}
 {{-- <td>{{ $patient['customer'] ? $patient['customer']['name']  . ($patient['customer']->trashed() ? ' (Deleted Customer)' : '') : 'Deleted Customer'}}
 <td>{{$patient['start_location']}}</td>
