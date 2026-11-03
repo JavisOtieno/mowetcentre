@@ -434,20 +434,31 @@
                             class="side-menu__label">Live Trail Map</span></a>
                 </li> --}}
             
-                                <li class="slide">
-                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/orders"><i
-                            class="side-menu__icon fe fe-bar-chart"></i><span
-                            class="side-menu__label">Orders</span></a>
-                </li>
+                 
                 <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/sessions"><i
                             class="side-menu__icon fe fe-map"></i><span
                             class="side-menu__label">Sessions</span></a>
                 </li>
+                 <li class="slide">
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/discharges"><i
+                            class="side-menu__icon fe fe-map"></i><span
+                            class="side-menu__label">Discharges</span></a>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/clients"><i
+                            class="side-menu__icon fe fe-user"></i><span
+                            class="side-menu__label">Clients</span></a>
+                </li>
                 <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/patients"><i
                             class="side-menu__icon fe fe-user"></i><span
                             class="side-menu__label">Patients</span></a>
+                </li>
+                 <li class="slide">
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/specialists"><i
+                            class="side-menu__icon fe fe-user"></i><span
+                            class="side-menu__label">Specialists</span></a>
                 </li>
 
               
@@ -461,6 +472,11 @@
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/counsellors"><i
                             class="side-menu__icon fe fe-user"></i><span
                             class="side-menu__label">Counsellors</span></a>
+                </li>
+                <li class="slide">
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/orders"><i
+                            class="side-menu__icon fe fe-bar-chart"></i><span
+                            class="side-menu__label">Orders</span></a>
                 </li>
                 <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/customers"><i

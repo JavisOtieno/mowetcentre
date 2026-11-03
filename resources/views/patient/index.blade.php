@@ -161,7 +161,7 @@
     function deleteItem(id,name,seller){
         //alert(id);
         var itemDetails = document.getElementById("itemDetails");
-        itemDetails.innerHTML = "Patient Name: "+name+"<br/> Counsellor Name: "+seller;
+        itemDetails.innerHTML = "Patient Name: "+name+"<br/> Phone: "+seller;
         var confirmDeleteLink = document.getElementById('confirmDelete'); //or grab it by tagname etc
         confirmDeleteLink.href = "/deletepatient/"+id;
     }

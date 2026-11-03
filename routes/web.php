@@ -1,12 +1,15 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DischargeController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\SpecialistController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +45,27 @@ Route::get('/createpatient', [PatientController::class,'addPatient']);
 Route::get('/patient/{id}', [PatientController::class,'showEditPatient']);
 Route::put('/saveeditpatient/{id}',[PatientController::class,'saveEditPatient']);
 Route::get('/deletepatient/{id}', [PatientController::class,'deletePatient']);
+
+Route::get('/clients', [ClientController::class, 'index']);
+Route::post('/saveclient',[ClientController::class,'saveClient']);
+Route::get('/createclient', [ClientController::class,'addClient']);
+Route::get('/client/{id}', [ClientController::class,'showEditClient']);
+Route::put('/saveeditclient/{id}',[ClientController::class,'saveEditClient']);
+Route::get('/deleteclient/{id}', [ClientController::class,'deleteClient']);
+
+Route::get('/specialists', [SpecialistController::class, 'index']);
+Route::post('/savespecialist',[SpecialistController::class,'saveSpecialist']);
+Route::get('/createspecialist', [SpecialistController::class,'addSpecialist']);
+Route::get('/specialist/{id}', [SpecialistController::class,'showEditSpecialist']);
+Route::put('/saveeditspecialist/{id}',[SpecialistController::class,'saveEditSpecialist']);
+Route::get('/deletespecialist/{id}', [SpecialistController::class,'deleteSpecialist']);
+
+Route::get('/discharges', [DischargeController::class, 'index']);
+Route::post('/savedischarge',[DischargeController::class,'saveDischarge']);
+Route::get('/createdischarge', [DischargeController::class,'addDischarge']);
+Route::get('/discharge/{id}', [DischargeController::class,'showEditDischarge']);
+Route::put('/saveeditdischarge/{id}',[DischargeController::class,'saveEditDischarge']);
+Route::get('/deletedischarge/{id}', [DischargeController::class,'deleteDischarge']);
 
 
 Route::get('/sessions', [SessionController::class, 'index']);

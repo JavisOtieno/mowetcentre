@@ -136,7 +136,7 @@ $differenceCounsellorsCustomers = abs($counsellorsTableCount - $customersTableCo
                             <tr>
                                 {{-- <th>ID</th> --}}
                                 <th>Session ID</th>
-                                <th>User Name</th>
+                                <th>Facilitator Name</th>
                                 <th>Session Date</th>
                                 
                             </tr>
