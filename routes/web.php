@@ -7,6 +7,7 @@ use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PatientController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\SignupController;
 use App\Http\Controllers\SpecialistController;
@@ -67,6 +68,12 @@ Route::get('/discharge/{id}', [DischargeController::class,'showEditDischarge']);
 Route::put('/saveeditdischarge/{id}',[DischargeController::class,'saveEditDischarge']);
 Route::get('/deletedischarge/{id}', [DischargeController::class,'deleteDischarge']);
 
+Route::get('/reviews', [ReviewController::class, 'index']);
+Route::post('/savereview',[ReviewController::class,'saveReview']);
+Route::get('/createreview', [ReviewController::class,'addReview']);
+Route::get('/review/{id}', [ReviewController::class,'showEditReview']);
+Route::put('/saveeditreview/{id}',[ReviewController::class,'saveEditReview']);
+Route::get('/deletereview/{id}', [ReviewController::class,'deleteReview']);
 
 Route::get('/sessions', [SessionController::class, 'index']);
 Route::post('/savesession',[SessionController::class,'saveSession']);

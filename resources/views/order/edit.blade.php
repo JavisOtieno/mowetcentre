@@ -66,7 +66,7 @@
                                 <input type="text" class="form-control" name="counsellor_id" id="counsellor_id" placeholder="Counsellor Id" value="{{ old('counsellor_id', $order['counsellor_id']) }}" autocomplete="counsellor_id">
                             </div> --}}
 
-                                                                                <div class="form-group">
+                        <div class="form-group">
                             <label class="form-label"> Customer</label>
                             <select class="form-control select2-show-search form-select" name="customer_id" id="customer_id" data-placeholder="Choose one">
                                     <option label="Choose one"></option>

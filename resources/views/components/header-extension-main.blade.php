@@ -440,19 +440,24 @@
                             class="side-menu__icon fe fe-map"></i><span
                             class="side-menu__label">Sessions</span></a>
                 </li>
+                <li class="slide">
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="/reviews"><i
+                            class="side-menu__icon fe fe-layers"></i><span
+                            class="side-menu__label">Reviews</span></a>
+                </li>
                  <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/discharges"><i
-                            class="side-menu__icon fe fe-map"></i><span
+                            class="side-menu__icon fe fe-file-text"></i><span
                             class="side-menu__label">Discharges</span></a>
                 </li>
                 <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/clients"><i
-                            class="side-menu__icon fe fe-user"></i><span
+                            class="side-menu__icon fe fe-users"></i><span
                             class="side-menu__label">Clients</span></a>
                 </li>
                 <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/patients"><i
-                            class="side-menu__icon fe fe-user"></i><span
+                            class="side-menu__icon fe fe-users"></i><span
                             class="side-menu__label">Patients</span></a>
                 </li>
                  <li class="slide">
@@ -473,16 +478,16 @@
                             class="side-menu__icon fe fe-user"></i><span
                             class="side-menu__label">Counsellors</span></a>
                 </li>
-                <li class="slide">
+                {{-- <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/orders"><i
                             class="side-menu__icon fe fe-bar-chart"></i><span
                             class="side-menu__label">Orders</span></a>
-                </li>
-                <li class="slide">
+                </li> --}}
+                {{-- <li class="slide">
                     <a class="side-menu__item has-link" data-bs-toggle="slide" href="/customers"><i
                             class="side-menu__icon fe fe-user"></i><span
                             class="side-menu__label">Customers</span></a>
-                </li>
+                </li> --}}
 
                 {{-- <li class="slide">
                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i

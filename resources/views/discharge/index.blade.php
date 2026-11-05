@@ -81,10 +81,10 @@
 <td>{{$discharge['id']}}</td>
 <td><a type="button" href="/discharge/{{$discharge['id']}}" class="btn btn-info" style="margin-left: auto;color:white;">View/Edit</a>
 </td>
-<td><a type="button" onclick="deleteItem('{{$discharge['id']}}','{{$discharge['name']}}','{{$discharge['phone']}}')"  class="btn btn-danger" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#modalDelete">Delete</a>
+<td><a type="button" onclick="deleteItem('{{$discharge['id']}}','{{$discharge['patient']['name']}}','{{$discharge['patient']['phone']}}')"  class="btn btn-danger" style="margin-left: auto;color:white;" data-bs-toggle="modal" href="#modalDelete">Delete</a>
 </td>
-<td>{{$discharge['patient']['name']}}</td>
-{{-- <td>{{$discharge['patient'] ? $discharge['patient']['name']  . ($discharge['patient']->trashed() ? ' (Deleted Patient)' : '') : 'Deleted Patient'}}</td> --}}
+{{-- <td>{{$discharge['patient']['name']. ($discharge['patient']->trashed() ? ' (Deleted Patient)' : '') }}</td> --}}
+<td>{{$discharge['patient'] ? $discharge['patient']['name']  : 'Deleted Patient'}}</td>
     {{-- <td>{{$posaudit['user']['name']}}</td> --}}
 {{-- <td>{{ $discharge['customer'] ? $discharge['customer']['name']  . ($discharge['customer']->trashed() ? ' (Deleted Customer)' : '') : 'Deleted Customer'}}
 <td>{{$discharge['start_location']}}</td>
@@ -157,7 +157,7 @@
     function deleteItem(id,name,seller){
         //alert(id);
         var itemDetails = document.getElementById("itemDetails");
-        itemDetails.innerHTML = "Discharge Name: "+name+"<br/> Phone: "+seller;
+        itemDetails.innerHTML = "Patient Name: "+name+"<br/> Phone: "+seller;
         var confirmDeleteLink = document.getElementById('confirmDelete'); //or grab it by tagname etc
         confirmDeleteLink.href = "/deletedischarge/"+id;
     }
