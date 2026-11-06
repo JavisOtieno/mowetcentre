@@ -36,8 +36,8 @@
                 <input type="text" class="form-control" id="nameInput" placeholder="Name">
             </div> --}}
             <div class="col-md-3 mb-3">
-                <label for="driverName" class="form-label">Counsellor Name</label>
-                <input type="text" class="form-control" id="driverNameInput" placeholder="Counsellor Name">
+                <label for="counsellorName" class="form-label">Counsellor Name</label>
+                <input type="text" class="form-control" id="counsellorNameInput" placeholder="Counsellor Name">
             </div>
             <div class="col-md-3 mb-3">
                 <label for="date" class="form-label">From</label>
@@ -61,7 +61,7 @@
                             <th id="delete-column">Delete</th>
                             <th>Title</th>
                             <th>Mode</th>
-                            <th>Counsellor</th>
+                            <th>Counsellor Name</th>
 
 
                             {{-- <th>Customer</th>

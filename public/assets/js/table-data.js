@@ -472,7 +472,25 @@ $(function(e) {
         table2.column(nameColumnIndex).search(this.value).draw(); 
         //console.log("Selected value: " + selectedValue);
       });
-    }else if(tableLoaded=="targetgroups"){
+    }else if(tableLoaded=="specialists" || tableLoaded=="patients" || tableLoaded=="clients"){
+        var nameColumnIndex = table2.columns().header().toArray().findIndex(header => $(header).text() === 'Name');
+        $('#nameInput').on('keyup', function() {
+            //alert(this.value);
+            table2.column(nameColumnIndex).search(this.value).draw(); // Column index 0 for 'Name'
+        });
+
+    }
+    else if(tableLoaded=="sessions"){
+        var nameColumnIndex = table2.columns().header().toArray().findIndex(header => $(header).text() === 'Counsellor Name');
+
+        $('#counsellorNameInput').on('keyup', function() {
+            //alert(this.value);
+            table2.column(nameColumnIndex).search(this.value).draw(); // Column index 0 for 'Name'
+        });
+
+
+    }
+    else if(tableLoaded=="targetgroups"){
 
         var nameColumnIndex = table2.columns().header().toArray().findIndex(header => $(header).text() === 'Name');
         var amountColumnIndex = table2.columns().header().toArray().findIndex(header => $(header).text() === 'Amount');
@@ -742,6 +760,18 @@ $(function(e) {
 
         if(nameColumnIndex>0){
         $('#nameInput').on('keyup', function() {
+            table2.column(nameColumnIndex).search(this.value).draw(); // Column index 1 for 'Name'
+        });
+        
+        }
+        }
+    else if(tableLoaded=="discharges" || tableLoaded =="reviews"){
+        // alert('we are here');
+        
+        var nameColumnIndex = table2.columns().header().toArray().findIndex(header => $(header).text() === 'Patient Name');
+
+        if(nameColumnIndex>0){
+        $('#patientNameInput').on('keyup', function() {
             table2.column(nameColumnIndex).search(this.value).draw(); // Column index 1 for 'Name'
         });
         
