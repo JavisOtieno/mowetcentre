@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\CounsellorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DischargeController;
 use App\Http\Controllers\LocationController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\SignupController;
 use App\Http\Controllers\SpecialistController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\UserController;
+use App\Models\Counsellor;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -109,13 +111,13 @@ Route::get('/add-admin', [UserController::class,'addAdmin']);
 Route::get('/editadmin/{id}', [UserController::class,'showEditAdmin']);
 Route::put('/saveeditadmin/{id}',[UserController::class,'saveEditAdmin']);
 
-Route::get('/counsellors', [UserController::class,'counsellors']);
-Route::get('/counsellors/{id}/{object}',[UserController::class,'showCounsellorsById']);
-Route::get('/deletecounsellor/{id}', [UserController::class,'deleteCounsellor']);
-Route::post('/savecounsellor', [UserController::class,'saveCounsellor']);
-Route::get('/add-counsellor', [UserController::class,'addCounsellor']);
-Route::get('/editcounsellor/{id}', [UserController::class,'showEditCounsellor']);
-Route::put('/saveeditcounsellor/{id}',[UserController::class,'saveEditCounsellor']);
+Route::get('/counsellors', [CounsellorController::class,'index']);
+Route::get('/counsellors/{id}/{object}',[CounsellorController::class,'showCounsellorsById']);
+Route::get('/deletecounsellor/{id}', [CounsellorController::class,'deleteCounsellor']);
+Route::post('/savecounsellor', [CounsellorController::class,'saveCounsellor']);
+Route::get('/add-counsellor', [CounsellorController::class,'addCounsellor']);
+Route::get('/editcounsellor/{id}', [CounsellorController::class,'showEditCounsellor']);
+Route::put('/saveeditcounsellor/{id}',[CounsellorController::class,'saveEditCounsellor']);
 
 
 Route::get('/customers', [UserController::class,'customers']);

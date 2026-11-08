@@ -29,7 +29,7 @@
             <!--<p>Use <code class="highlighter-rouge">.table-striped</code>to add zebra-striping to any table row within the <code class="highlighter-rouge">.tbody</code>.</p>-->
             
                 
-                    <form action="/saveeditcounsellor/{{$user['id']}}" method="POST"  enctype="multipart/form-data">
+                    <form action="/saveeditcounsellor/{{$counsellor['id']}}" method="POST"  enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="">
@@ -51,51 +51,50 @@
                             @endif
                             <div class="form-group">
                                 <label for="name" class="form-label">Name</label>
-                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{old('name',$user['name'])}}" autocomplete="name">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" value="{{old('name',$counsellor['name'])}}" autocomplete="name">
                             </div>
                             <div class="form-group">
                                 <label for="phone" class="form-label">Phone</label>
-                                <input type="text" class="form-control" name="phone"  placeholder="Phone" value="{{old('phone',$user['phone'])}}" autocomplete="phone">
+                                <input type="text" class="form-control" name="phone"  placeholder="Phone" value="{{old('phone',$counsellor['phone'])}}" autocomplete="phone">
                             </div>
                             <div class="form-group">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="{{old('email',$user['email'])}}" autocomplete="email">
+                                <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="{{old('email',$counsellor['email'])}}" autocomplete="email">
                             </div>
                             {{-- <div class="form-group">
                                 <label for="counsellor" class="form-label">User Type</label>
                                 <select name="usertype" class="form-control form-select select2" data-bs-placeholder="Select User Type">
-                                                    <option {{old('usertype',$user['usertype'])=="counsellor"? 'selected':''}} value="counsellor">Counsellor</option>
-                                                    <option {{old('usertype',$user['usertype'])=="sales"? 'selected':''}} value="sales">Sales</option>
+                                                    <option {{old('usertype',$counsellor['usertype'])=="counsellor"? 'selected':''}} value="counsellor">Counsellor</option>
+                                                    <option {{old('usertype',$counsellor['usertype'])=="sales"? 'selected':''}} value="sales">Sales</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="target_group_id" class="form-label">Targets</label>
                                 <select name="target_group_id" class="form-control form-select select2" data-bs-placeholder="Select User Type">
-                                    <option {{old('target_group_id',$user['target_group_id'])=="0"? 'selected':''}} value="0">None</option>
+                                    <option {{old('target_group_id',$counsellor['target_group_id'])=="0"? 'selected':''}} value="0">None</option>
                                     @foreach($targetgroups as $targetgroup)
-                                        <option {{old('target_group_id',$user['target_group_id'])==$targetgroup['id']? 'selected':''}} value="{{$targetgroup['id']}}">{{$targetgroup['name']." - KSh ".number_format($targetgroup['amount'])}}</option>
+                                        <option {{old('target_group_id',$counsellor['target_group_id'])==$targetgroup['id']? 'selected':''}} value="{{$targetgroup['id']}}">{{$targetgroup['name']." - KSh ".number_format($targetgroup['amount'])}}</option>
 
                                         @endforeach
                 </select>
                             </div> --}}
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="image" class="form-label">Image (Optional)</label>
-                                {{-- {{url('storage/'.old('image',$user['image']))}} --}}
                                 <div class="col-lg-12 col-sm-12 mb-4 mb-lg-0">
-                                    <input type="file" class="dropify" name="image" data-default-file="{{$user['image']==''?'':url('storage/'.$user['image'])}}" data-bs-height="180">
+                                    <input type="file" class="dropify" name="image" data-default-file="{{$counsellor['image']==''?'':url('storage/'.$counsellor['image'])}}" data-bs-height="180">
                                     <input type="hidden" name="default_file_removed" id="default_file_removed" value="0">
-                                    <input type="hidden" name="existing_file" value="{{$user['image']==''?'':url('storage/'.$user['image'])}}">
+                                    <input type="hidden" name="existing_file" value="{{$counsellor['image']==''?'':url('storage/'.$counsellor['image'])}}">
        
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label for="dateTime" class="form-label">Date and Time Added</label>
-                                <input readonly type="text" class="form-control" name="dateTime" id="dateTime" placeholder="DateTime" value="{{date('d-M-Y H:i', strtotime($user['created_at']))}}" autocomplete="dateTime">
+                                <input readonly type="text" class="form-control" name="dateTime" id="dateTime" placeholder="DateTime" value="{{date('d-M-Y H:i', strtotime($counsellor['created_at']))}}" autocomplete="dateTime">
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="password" class="form-label">Password</label>
-                                <a href="/changepassword/counsellor/{{$user['id']}}" class="col-12 btn btn-info mb-0">Change Password</a>                            
-                            </div>
+                                <a href="/changepassword/counsellor/{{$counsellor['id']}}" class="col-12 btn btn-info mb-0">Change Password</a>                            
+                            </div> --}}
                             
                         </div>
                         <button class="btn btn-primary mt-4 mb-0">Save</button>
@@ -105,7 +104,7 @@
                         // <label for="password" class="form-label">Password</label> 
                         <form method="POST" action="{{ route('changepassword') }}">
                             @csrf
-                            <input type="hidden" name="id" value="{{ $user->id }}">
+                            <input type="hidden" name="id" value="{{ $counsellor->id }}">
                             <!-- Other form fields -->
                             <button type="submit" class="btn btn-info">Change Password</button>
                         </form> --}}

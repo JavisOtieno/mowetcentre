@@ -86,7 +86,7 @@
                                         <th>Region</th>
                                         <th>Territory</th>
                                         <th>Cluster</th> --}}
-                                        <th>Status</th>
+                                        {{-- <th>Status</th> --}}
                                         <th>Date</th>
                                         
                                         
@@ -94,32 +94,32 @@
                                 </thead>
                                 <tbody>
                                     
-                                        @if(count($users)>0)
+                                        @if(count($counsellors)>0)
                                         
-                                        @foreach($users as $user)
+                                        @foreach($counsellors as $counsellor)
                                         <tr>
-                                        <td>{{$user['id']}}</td>
+                                        <td>{{$counsellor['id']}}</td>
                                         <td>
-                                            <a type="button" href="/editcounsellor/{{$user['id']}}" class="btn btn-info" style="margin-left: auto;color:white;">View/Edit</a>
+                                            <a type="button" href="/editcounsellor/{{$counsellor['id']}}" class="btn btn-info" style="margin-left: auto;color:white;">View/Edit</a>
                                         </td>
-                                        <td><a type="button" onclick="deleteItem({{$user['id']}},'Id: '+{{$user['id']}}+'<br/> Name: '+'{{$user['name']}}'+'<br/> Phone: '+'{{$user['phone']}}'+'<br/> Email: '+'{{$user['email']}}')"  
+                                        <td><a type="button" onclick="deleteItem({{$counsellor['id']}},'Id: '+{{$counsellor['id']}}+'<br/> Name: '+'{{$counsellor['name']}}'+'<br/> Phone: '+'{{$counsellor['phone']}}'+'<br/> Email: '+'{{$counsellor['email']}}')"  
                                             class="btn btn-danger" style="margin-left: auto;color:white;" 
                                             data-bs-toggle="modal" href="#modalDelete">Delete</a>
                                         </td>
                                         @if(auth()->user()->usertype == 'systemadmin')
-                                        <th>{{$user['organization']['name']}}</th>
+                                        <th>{{$counsellor['organization']['name']}}</th>
                                         @endif
-                                        <td>{{$user['name']}}</td>
-                                        <td>{{$user['phone']}}</td>
-                                        <td>{{$user['email']}}</td>
-                                        {{-- <td>{{ucfirst($user['usertype'])}}</td> --}}
-                                        {{-- <td>{{$user['targetgroup']==null?"None":'KSh '.number_format($user['targetgroup']['amount']) }}</td>
-                                        <td>{{$user['team']==null?"None":$user['team']['name']}}</td>
-                                        <td>{{$user['region']==null?"None":$user['region']['name']}}</td>
-                                        <td>{{$user['territory']==null?"None":$user['territory']['name'] }}</td>
-                                        <td>{{$user['cluster']==null? "None" : $user['cluster']['name']  }}</td> --}}
-                                        <td>{{ucfirst($user['status'])}}</td>
-                                        <td>{{date('d-M-Y', strtotime($user['created_at']))}}</td>
+                                        <td>{{$counsellor['name']}}</td>
+                                        <td>{{$counsellor['phone']}}</td>
+                                        <td>{{$counsellor['email']}}</td>
+                                        {{-- <td>{{ucfirst($counsellor['usertype'])}}</td> --}}
+                                        {{-- <td>{{$counsellor['targetgroup']==null?"None":'KSh '.number_format($counsellor['targetgroup']['amount']) }}</td>
+                                        <td>{{$counsellor['team']==null?"None":$counsellor['team']['name']}}</td>
+                                        <td>{{$counsellor['region']==null?"None":$counsellor['region']['name']}}</td>
+                                        <td>{{$counsellor['territory']==null?"None":$counsellor['territory']['name'] }}</td>
+                                        <td>{{$counsellor['cluster']==null? "None" : $counsellor['cluster']['name']  }}</td> --}}
+                                        {{-- <td>{{ucfirst($counsellor['status'])}}</td> --}}
+                                        <td>{{date('d-M-Y', strtotime($counsellor['created_at']))}}</td>
 
                                         <!--<a class="modal-effect btn btn-primary-light d-grid mb-3" data-bs-effect="effect-scale" >Scale</a>-->
                                         </tr>

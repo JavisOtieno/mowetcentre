@@ -88,7 +88,7 @@
 </td>
 <td>{{$session['title']}}</td>
 <td>{{$session['mode']}}</td>
-<td>{{ $session['counsellor'] ? $session['counsellor']['name']  . ($session['counsellor']->trashed() ? ' (Deleted Counsellor)' : '') : 'Deleted Customer'}}
+<td>{{ $session['counsellor'] ? $session['counsellor']['name'] : 'Deleted Customer'}}
     {{-- <td>{{$posaudit['user']['name']}}</td> --}}
 {{-- <td>{{ $session['customer'] ? $session['customer']['name']  . ($session['customer']->trashed() ? ' (Deleted Customer)' : '') : 'Deleted Customer'}}
 <td>{{$session['start_location']}}</td>

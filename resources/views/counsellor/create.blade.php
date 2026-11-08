@@ -75,7 +75,7 @@
 
 
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="image" class="form-label">Image (Optional)</label>
                                 <div class="col-lg-12 col-sm-12 mb-4 mb-lg-0">
                                     <input name="image" type="file" class="dropify" data-bs-height="180">
@@ -88,7 +88,7 @@
                             <div class="form-group">
                                 <label for="password_confirmation" class="form-label">Confirm Password</label>
                                 <input type="password" class="form-control" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password"  autocomplete="password_confirmation">
-                            </div>
+                            </div> --}}
 
 
                             

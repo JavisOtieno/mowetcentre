@@ -20,6 +20,6 @@ class Session extends Model
     // Optional: relationship
     public function counsellor()
     {
-        return $this->belongsTo(User::class, 'counsellor_id');
+        return $this->belongsTo(Counsellor::class, 'counsellor_id');
     }
 }

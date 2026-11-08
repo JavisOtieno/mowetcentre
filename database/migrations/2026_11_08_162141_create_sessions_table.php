@@ -33,7 +33,7 @@ return new class extends Migration
 
             // Link to Counsellor
             $table->foreignId('counsellor_id')
-            ->constrained('users', 'id')
+            ->constrained('counsellors', 'id')
             ->cascadeOnDelete();
             // Add your other session columns here
             
