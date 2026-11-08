@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Counsellor;
 use App\Models\Session;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class SessionController extends Controller
     }
 
     public function addSession() {
-        $counsellors = User::all();
+        $counsellors = Counsellor::all();
         return view('session.create', compact('counsellors'));
     }
 
@@ -58,7 +59,7 @@ class SessionController extends Controller
     }
     public function showEditSession($id){
         $session = Session::find($id);
-        $counsellors = User::all();
+        $counsellors = Counsellor::all();
         return view('session.edit',['session'=>$session, 'counsellors'=>$counsellors]);
     }
     public function saveEditSession($id, Request $request){
